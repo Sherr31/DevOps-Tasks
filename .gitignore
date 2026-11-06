@@ -1,0 +1,7 @@
+# SSH private keys — never commit
+aws-secure-vpc.pem
+*.pem
+
+# Local console / project screenshots (kept on disk for README drafting)
+pics/
+aws-secure-vpc/pics/

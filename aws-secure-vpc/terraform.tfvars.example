@@ -1,0 +1,29 @@
+# -----------------------------------------------------------------------------
+# Copy this file to terraform.tfvars and fill in values before terraform apply.
+#
+#   cp terraform.tfvars.example terraform.tfvars
+#
+# Never commit terraform.tfvars if it contains sensitive overrides.
+# -----------------------------------------------------------------------------
+
+aws_region   = "us-east-1"
+project_name = "secure-vpc"
+environment  = "dev"
+
+vpc_cidr             = "10.0.0.0/16"
+public_subnet_cidrs  = ["10.0.1.0/24", "10.0.2.0/24"]
+private_subnet_cidrs = ["10.0.11.0/24", "10.0.12.0/24"]
+
+# Must already exist in the target region (EC2 → Key Pairs).
+key_name = "my-keypair"
+
+# Prefer your public IP/32, e.g. "203.0.113.10/32". Use 0.0.0.0/0 only for labs.
+bastion_ssh_cidr = "0.0.0.0/0"
+
+instance_type = "t3.micro"
+
+asg_desired_capacity = 2
+asg_min_size         = 1
+asg_max_size         = 3
+
+app_port = 8000
